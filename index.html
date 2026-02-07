@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form validation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <form action="">
+        <h2 id="title">Create Account</h2>
+
+        <div class="form-control">
+            <label for="username">username</label>
+            <input type="text" id="username" autocomplete="off" />
+            <small class="error-msg">some warning text</small>
+        </div>
+
+        <div class="form-control">
+            <label for="password">password</label>
+            <input type="text" id="password" autocomplete="off" />
+            <small class="error-msg">some warning text</small>
+            <!-- <span id="show-password-btn">show</span> -->
+        </div>
+
+        <div class="form-control">
+            <label for="age">age</label>
+            <input type="number" min="1" max="120" id="age" autocomplete="off" />
+            <small class="error-msg">some warning text</small>
+        </div>
+
+        <div class="form-control">
+            <label for="email">email</label>
+            <input type="text" id="email" autocomplete="off" />
+            <small class="error-msg">some warning text</small>
+        </div>
+
+        <button id="create-btn">CREATE</button>
+    </form>
+    
+    <script src="script.js"></script>
+</body>
+</html>
+
