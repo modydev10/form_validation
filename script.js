@@ -37,21 +37,22 @@ function checkValidation(input) {
         const test = usernameRegex.test(input.value);
         if (test) {
             input.className = 'valid-input';
-            input.parentElement.querySelector('small').classList.remove('visible');
+            input.parentElement.querySelector('small.error-msg').classList.remove('visible');
         } else {
             input.className = 'not-valid-input';
-            input.parentElement.querySelector('small').classList.add('visible');
-            input.parentElement.querySelector('small').textContent = "username is not valid";
+            input.parentElement.querySelector('small.error-msg').classList.add('visible');
+            input.parentElement.querySelector('small.error-msg').textContent = "username is not valid";
         }
     } else if (input.id == 'password') {
         const test = passwordRegex.test(input.value);
         if (test) {
             input.className = 'valid-input';
-            input.parentElement.querySelector('small').classList.remove('visible');
+            input.parentElement.querySelector('small.error-msg').classList.remove('visible');
+            input.parentElement.querySelector('small.error-msg').textContent = "some warning text";
         } else {
             input.className = 'not-valid-input';
-            input.parentElement.querySelector('small').classList.add('visible');
-            input.parentElement.querySelector('small').textContent =
+            input.parentElement.querySelector('small.error-msg').classList.add('visible');
+            input.parentElement.querySelector('small.error-msg').textContent =
                 "the password should consist of at least 8 character. including a capital letter, a small letter, a number and a symbol";
         }
     } else if (input.id == 'age') {
@@ -59,22 +60,23 @@ function checkValidation(input) {
         const age = Number(input.value)
         if (age < 1 || age > 120) {
             input.value = "";
-            input.parentElement.querySelector('small').classList.add('visible');
-            input.parentElement.querySelector('small').textContent = `are you ${age} years old? please be serious`;
+            input.parentElement.querySelector('small.error-msg').classList.add('visible');
+            input.parentElement.querySelector('small.error-msg').textContent = `are you ${age} years old? please be serious`;
+            input.className = '';
         } else {
             input.className = 'valid-input';
-            input.parentElement.querySelector('small').classList.remove('visible');
-            input.parentElement.querySelector('small').textContent = "";
+            input.parentElement.querySelector('small.error-msg').classList.remove('visible');
+            input.parentElement.querySelector('small.error-msg').textContent = "";
         }
     } else if (input.id == 'email') {
         const test = emailRegex.test(input.value);
         if (test) {
             input.className = 'valid-input';
-            input.parentElement.querySelector('small').classList.remove('visible');
+            input.parentElement.querySelector('small.error-msg').classList.remove('visible');
         } else {
             input.className = 'not-valid-input';
-            input.parentElement.querySelector('small').classList.add('visible');
-            input.parentElement.querySelector('small').textContent = "email is not valid";
+            input.parentElement.querySelector('small.error-msg').classList.add('visible');
+            input.parentElement.querySelector('small.error-msg').textContent = "email is not valid";
         }
     }
 }
@@ -101,7 +103,8 @@ inputFields.forEach((input, i) => {
 
         } else if (e.key == 'Backspace' && input.value == "") {
             input.className = '';
-            input.parentElement.querySelector('small').classList.remove('visible');
+            input.parentElement.querySelector('small.error-msg').classList.remove('visible');
+            input.parentElement.querySelector('small.error-msg').textContent = "some warning text";
             // input.parentElement.querySelector('small').textContent = "";
         }
     })
